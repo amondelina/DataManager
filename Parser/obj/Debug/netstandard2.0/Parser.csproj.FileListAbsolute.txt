@@ -1,0 +1,9 @@
+D:\code\c#\FileWatcherService\Parser\bin\Debug\netstandard2.0\Parser.deps.json
+D:\code\c#\FileWatcherService\Parser\bin\Debug\netstandard2.0\Parser.dll
+D:\code\c#\FileWatcherService\Parser\bin\Debug\netstandard2.0\Parser.pdb
+D:\code\c#\FileWatcherService\Parser\obj\Debug\netstandard2.0\Parser.csprojAssemblyReference.cache
+D:\code\c#\FileWatcherService\Parser\obj\Debug\netstandard2.0\Parser.AssemblyInfoInputs.cache
+D:\code\c#\FileWatcherService\Parser\obj\Debug\netstandard2.0\Parser.AssemblyInfo.cs
+D:\code\c#\FileWatcherService\Parser\obj\Debug\netstandard2.0\Parser.dll
+D:\code\c#\FileWatcherService\Parser\obj\Debug\netstandard2.0\Parser.pdb
+D:\code\c#\FileWatcherService\Parser\obj\Debug\netstandard2.0\Parser.csproj.CoreCompileInputs.cache

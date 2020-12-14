@@ -1,0 +1,12 @@
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\Models.dll
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\OptionsManager.dll
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\Models.pdb
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\Models.dll.config
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\bin\Debug\OptionsManager.pdb
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\code\c#\DataManagerWithFTPServer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

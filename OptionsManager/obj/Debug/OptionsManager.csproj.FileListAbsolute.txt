@@ -1,0 +1,6 @@
+D:\code\c#\DataManagerWithFTPServer\OptionsManager\bin\Debug\OptionsManager.dll
+D:\code\c#\DataManagerWithFTPServer\OptionsManager\bin\Debug\OptionsManager.pdb
+D:\code\c#\DataManagerWithFTPServer\OptionsManager\obj\Debug\OptionsManager.csprojAssemblyReference.cache
+D:\code\c#\DataManagerWithFTPServer\OptionsManager\obj\Debug\OptionsManager.csproj.CoreCompileInputs.cache
+D:\code\c#\DataManagerWithFTPServer\OptionsManager\obj\Debug\OptionsManager.dll
+D:\code\c#\DataManagerWithFTPServer\OptionsManager\obj\Debug\OptionsManager.pdb

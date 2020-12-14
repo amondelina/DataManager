@@ -1,0 +1,12 @@
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\Models.dll.config
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\Models.dll
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\Models.pdb
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\EntityFramework.dll
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\EntityFramework.xml
+D:\code\c#\DataManagerWithFTPServer\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\code\c#\DataManagerWithFTPServer\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\code\c#\DataManagerWithFTPServer\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\code\c#\DataManagerWithFTPServer\Models\obj\Debug\Models.csproj.CopyComplete
+D:\code\c#\DataManagerWithFTPServer\Models\obj\Debug\Models.dll
+D:\code\c#\DataManagerWithFTPServer\Models\obj\Debug\Models.pdb

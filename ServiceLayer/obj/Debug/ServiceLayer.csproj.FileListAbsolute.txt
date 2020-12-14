@@ -1,0 +1,16 @@
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\ServiceLayer.dll
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\ServiceLayer.pdb
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\DataAccessLayer.dll
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\Models.dll
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\OptionsManager.dll
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\Parser.dll
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\Parser.pdb
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\DataAccessLayer.pdb
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\Models.pdb
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\Models.dll.config
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\bin\Debug\OptionsManager.pdb
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\obj\Debug\ServiceLayer.csprojAssemblyReference.cache
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\obj\Debug\ServiceLayer.csproj.CoreCompileInputs.cache
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\obj\Debug\ServiceLayer.csproj.CopyComplete
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\obj\Debug\ServiceLayer.dll
+D:\code\c#\DataManagerWithFTPServer\ServiceLayer\obj\Debug\ServiceLayer.pdb
