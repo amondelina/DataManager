@@ -30,12 +30,12 @@ namespace DataManager
             numericUpDownPhone.Value = rnd.Next() % 1000 + 1;
         }
 
-        private void buttonObject_Click(object sender, EventArgs e)
+        private async void buttonObject_Click(object sender, EventArgs e)
         {
-            contacts = sl.CreateContacts(decimal.ToInt32(numericUpDownPhone.Value),
+            contacts = await sl.CreateContacts(decimal.ToInt32(numericUpDownPhone.Value),
                                          decimal.ToInt32(numericUpDownAddress.Value), 
                                          decimal.ToInt32(numericUpDownEmail.Value));
-            textBoxXML.Text = sl.CreateXML(contacts);
+            textBoxXML.Text = await sl.CreateXML(contacts);
             buttonFile.Enabled = true;
             textBoxName.Enabled = true;
             var name = "";
@@ -46,9 +46,9 @@ namespace DataManager
             textBoxName.Text = name;
         }
 
-        private void buttonFile_Click(object sender, EventArgs e)
+        private async void buttonFile_Click(object sender, EventArgs e)
         {
-            sl.CreateFile(textBoxName.Text, textBoxXML.Text, ".xml");
+            await sl.CreateFile(textBoxName.Text, textBoxXML.Text, ".xml");
             textBoxXML.Text = "";
             textBoxName.Text = "";
             textBoxName.Enabled = false;
