@@ -24,37 +24,37 @@ namespace ServiceLayer
             Log = new DataAccessLayer.DataAccessLayer((manager.GetOptions<SendingOptions>() as SendingOptions).LogOptions);
             parser = new ParserToXML();
         }
-        public Contacts CreateContacts(int PhoneId, int AddressId, int EmailId)
+        public async  Task<Contacts> CreateContacts(int PhoneId, int AddressId, int EmailId)
         {
             Address address;
             EmailAddress email;
             PersonPhone phone;
             try
             {
-                address = DAL.GetAddress(AddressId);
+                address = await DAL.GetAddress(AddressId);
             }
             catch(Exception e)
             {
                 address = null;
-                Log.Write(e.Message);
+                await Log.Write(e.Message);
             }
             try
             {
-                email = DAL.GetEmailAddress(EmailId);
+                email = await DAL.GetEmailAddress(EmailId);
             }
             catch (Exception e)
             {
                 email = null;
-                Log.Write(e.Message);
+                await Log.Write(e.Message);
             }
             try
             {
-                phone = DAL.GetPersonPhone(PhoneId);
+                phone = await DAL.GetPersonPhone(PhoneId);
             }
             catch (Exception e)
             {
                 phone = null;
-                Log.Write(e.Message);
+                await Log.Write(e.Message);
             }
             return  new Contacts
             {
@@ -64,27 +64,27 @@ namespace ServiceLayer
                 PersonPhone = phone
             };
         }
-        public string CreateXML (Contacts contacts)
+        public async Task<string> CreateXML (Contacts contacts)
         {
             if (first == true)
             {
-                CreateFile("Contacts", parser.GenerateXSDSchema<Contacts>(), ".xsd");
+                await CreateFile("Contacts", parser.GenerateXSDSchema<Contacts>(), ".xsd");
                 first = false;
             }
             return parser.GenerateXML(contacts);
         }
-        public void CreateFile(string name, string content, string ext)
+        public async Task CreateFile(string name, string content, string ext)
         {
             var dir = (manager.GetOptions<SendingOptions>() as SendingOptions).Directory;
             var path = Path.Combine(dir, name + ext);
             try
             {
                 using (var sw = new StreamWriter(path))
-                    sw.Write(content);
+                    await sw.WriteAsync(content);
             }
             catch(Exception e)
             {
-                Log.Write(e.Message);
+               await Log.Write(e.Message);
             }
             
         }        

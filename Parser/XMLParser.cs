@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Parser
 {
@@ -11,9 +12,9 @@ namespace Parser
         public XMLParser(string path) : base(path)
         { }
 
-        override public T Get<T>()
+        override public async Task<T> Get<T>()
         {
-            var text = File.ReadAllText(path).Trim();
+            var text = (await File.ReadAllTextAsync(path)).Trim();
             return DeserializeObject<T>(Split(text));
         }
         

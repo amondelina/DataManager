@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using Models;
 using OptionsManager;
 using System.Transactions;
+using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
@@ -18,7 +19,7 @@ namespace DataAccessLayer
                 ts.Complete();
             }
         }
-        public Address GetAddress(int id)
+        public async  Task<Address> GetAddress(int id)
         {
             Address address;
             var command = new SqlCommand("GetAddress", connection);
@@ -27,24 +28,25 @@ namespace DataAccessLayer
             using (var ts = new TransactionScope())
             {
                 var reader = command.ExecuteReader();
-                reader.Read();
+                await reader.ReadAsync();
                 address = new Address
                 {
-                    AddressID = reader.GetInt32(0),
-                    AddressLine1 = reader.GetString(1),
-                    AddressLine2 = reader.IsDBNull(2) ? null : reader.GetString(2),
-                    City = reader.GetString(3),
-                    StateProvinceID = reader.GetInt32(4),
-                    PostalCode = reader.GetString(5),
-                    rowguid = reader.GetGuid(7),
-                    ModifiedDate = reader.GetDateTime(8)
+                    
+                    AddressID = await reader.GetFieldValueAsync<int>(0),
+                    AddressLine1 = await reader.GetFieldValueAsync<string>(1),
+                    AddressLine2 = reader.IsDBNull(2) ? null : await reader.GetFieldValueAsync<string>(2),
+                    City = await reader.GetFieldValueAsync<string>(3),
+                    StateProvinceID = await reader.GetFieldValueAsync<int>(4),
+                    PostalCode = await reader.GetFieldValueAsync<string>(5),
+                    rowguid = await reader.GetFieldValueAsync<Guid>(7),
+                    ModifiedDate = await reader.GetFieldValueAsync<DateTime>(8)
                 };
                 reader.Close();
                 ts.Complete();
             }
             return address;
         }
-        public EmailAddress GetEmailAddress(int id)
+        public async Task<EmailAddress> GetEmailAddress(int id)
         {
             EmailAddress email;
             var command = new SqlCommand("GetEmailAddress", connection);
@@ -53,22 +55,22 @@ namespace DataAccessLayer
             using (var ts = new TransactionScope())
             {
                 var reader = command.ExecuteReader();
-                reader.Read();
-                var businessEntityID = reader.GetInt32(0);
+                await reader.ReadAsync();
+                var businessEntityID = await reader.GetFieldValueAsync<int>(0);
                 email = new EmailAddress
                 {
-                    EmailAddressID = reader.GetInt32(1),
-                    EmailAddress1 = reader.GetString(2),
-                    rowguid = reader.GetGuid(3),
-                    ModifiedDate = reader.GetDateTime(4)
+                    EmailAddressID = await reader.GetFieldValueAsync<int>(1),
+                    EmailAddress1 = await reader.GetFieldValueAsync<string>(2),
+                    rowguid = await reader.GetFieldValueAsync<Guid>(3),
+                    ModifiedDate = await reader.GetFieldValueAsync<DateTime>(4)
                 };
                 reader.Close();
-                email.BusinessEntity = GetBusinessEntity(businessEntityID);
+                email.BusinessEntity = await GetBusinessEntity(businessEntityID);
                 ts.Complete();
             }
             return email;
         }
-        public BusinessEntity GetBusinessEntity(int id)
+        public async Task<BusinessEntity> GetBusinessEntity(int id)
         {
             BusinessEntity businessEntity;
             var command = new SqlCommand("GetBusinessEntity", connection);
@@ -77,12 +79,12 @@ namespace DataAccessLayer
             using(var ts = new TransactionScope())
             {
                 var reader = command.ExecuteReader();
-                reader.Read();
+                await reader.ReadAsync();
                 businessEntity = new BusinessEntity
                 {
-                    BusinessEntityID = reader.GetInt32(0),
-                    rowguid = reader.GetGuid(1),
-                    ModifiedDate = reader.GetDateTime(2)
+                    BusinessEntityID = await reader.GetFieldValueAsync<int>(0),
+                    rowguid = await reader.GetFieldValueAsync<Guid>(1),
+                    ModifiedDate = await reader.GetFieldValueAsync<DateTime>(2)
 
                 };
                 reader.Close();
@@ -91,7 +93,7 @@ namespace DataAccessLayer
             }
             return businessEntity;
         }
-        public PersonPhone GetPersonPhone(int id)
+        public async Task<PersonPhone> GetPersonPhone(int id)
         {
             PersonPhone phone;
             var command = new SqlCommand("GetPersonPhone", connection);
@@ -100,22 +102,22 @@ namespace DataAccessLayer
             using (var ts = new TransactionScope())
             {
                 var reader = command.ExecuteReader();
-                reader.Read();
-                var businessEntityID = reader.GetInt32(0);
-                var typeId = reader.GetInt32(2);
+                await reader.ReadAsync();
+                var businessEntityID = reader.GetFieldValueAsync<int>(0);
+                var typeId = reader.GetFieldValueAsync<int>(2);
                 phone = new PersonPhone
                 {
-                    PhoneNumber = reader.GetString(1),
-                    ModifiedDate = reader.GetDateTime(3)
+                    PhoneNumber = await reader.GetFieldValueAsync<string>(1),
+                    ModifiedDate = await reader.GetFieldValueAsync<DateTime>(3)
                 };
                 reader.Close();
-                phone.BusinessEntity = GetBusinessEntity(businessEntityID);
-                phone.PhoneNumberType = GetPhoneNumberType(typeId);
+                phone.BusinessEntity = await GetBusinessEntity(businessEntityID.Result);
+                phone.PhoneNumberType = await GetPhoneNumberType(typeId.Result);
                 ts.Complete();
             }
             return phone;
         }
-        public PhoneNumberType GetPhoneNumberType(int id)
+        public async Task<PhoneNumberType> GetPhoneNumberType(int id)
         {
             PhoneNumberType phoneNumberType;
             var command = new SqlCommand("GetPhoneNumberType", connection);
@@ -124,19 +126,19 @@ namespace DataAccessLayer
             using (var ts = new TransactionScope())
             {
                 var reader = command.ExecuteReader();
-                reader.Read();
+                await reader.ReadAsync();
                 phoneNumberType = new PhoneNumberType
                 {
-                    PhoneNumberTypeID = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    ModifiedDate = reader.GetDateTime(2)
+                    PhoneNumberTypeID = await reader.GetFieldValueAsync<int>(0),
+                    Name = await reader.GetFieldValueAsync<string>(1),
+                    ModifiedDate = await reader.GetFieldValueAsync<DateTime>(2)
                 };
                 ts.Complete();
                 reader.Close();
             }
             return phoneNumberType;
         }
-        public void Write(string message)
+        public async Task Write(string message)
         {
             var command = new SqlCommand("Write", connection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -144,7 +146,8 @@ namespace DataAccessLayer
             command.Parameters.AddWithValue("@time", DateTime.Now);
             using (var ts = new TransactionScope())
             {
-                command.ExecuteScalar();
+                Task task = new Task(() => command.ExecuteScalar());
+                await task;
                 ts.Complete();
             }
         }

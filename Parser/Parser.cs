@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Parser
 {
@@ -12,7 +13,7 @@ namespace Parser
         {
             this.path = path;
         }
-        public abstract T Get<T>() where T : new();
+        public abstract Task<T> Get<T>() where T : new();
          public T DeserializeObject<T>(List<ParserObject> objects) where T: new()
         {
             T instance = (T)Activator.CreateInstance(typeof(T));

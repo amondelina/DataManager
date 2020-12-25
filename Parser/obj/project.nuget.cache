@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nlrRRtfOPQkMYOmUlQuOcHyOVegz8kqvRKNYA5RebgRNREmmPQhjujY0aVIwaRQvXhWS/pPsfUn/tkwlgW3CzQ==",
+  "dgSpecHash": "KJN+Om+imSphiHnW2oIuc1dwOGQhzlLEct27p/Fmh+WX+uSLdmZY4csm1CPHV435sFbu7AyFBhiECtjjih+OtQ==",
   "success": true,
   "projectFilePath": "D:\\code\\c#\\FileWatcherService\\Parser\\Parser.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
